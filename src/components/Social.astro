@@ -1,0 +1,31 @@
+---
+import youtube from '../assets/youtube.svg';
+import twitter from '../assets/twitter.svg';
+import github from '../assets/github.svg';
+
+const icons = { youtube, twitter, github };
+
+type Platform = keyof typeof icons;
+
+interface Props {
+  platform: Platform;
+  username: string;
+}
+
+const { platform, username } = Astro.props as Props;
+
+const icon = icons[platform];
+const iconSrc = icon?.src ?? icon;
+---
+<div class="social">
+  <a href={`https://www.${platform}.com/${username}`} class="inline-block rounded-lg bg-amber-700 hover:bg-amber-700 transition-all duration-300" target="_blank" rel="noopener noreferrer">
+    <img src={icons[platform]?.src ?? icons[platform]} alt={`${platform} logo`} width="30" height="20" />
+  </a>
+</div>
+
+<style>
+  a {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+  }
+</style>
