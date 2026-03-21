@@ -2,17 +2,39 @@
 
 @layer components {
     body {
-        @apply text-gray-900 mx-auto p-4 leading-relaxed w-full max-w-[80ch] h-full min-h-dvh;
-    }
-    html {
-        height: 100%;
-        background-color: #f1f5f9;
+        @apply grid mx-auto p-4 leading-relaxed w-full max-w-[80ch] h-full min-h-dvh;
     }   
 }
 body {
-  display: grid;
   grid-template-rows: auto 1fr auto;
 }
+html {
+    height: 100%;
+    background-color: #f1f5f9;
+}
+html.dark {
+  background-color: #0d0950;
+  color: #fff;
+}
+
+.dark .menu {
+  background-color: #fff;
+  color: #000;
+}
+
+.dark .nav-links a:hover,
+.dark .nav-links a:focus {
+  color: #0d0950;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
+.dark a {
+  color: #ff9776;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -100,7 +122,6 @@ pre {
 h2 {
     margin: 0 0 1em;
     font-weight: normal;
-    color: #111827;
     font-size: 20px;
 }
 /*  Navigation styles */
